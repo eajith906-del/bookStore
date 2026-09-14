@@ -1,0 +1,40 @@
+.admin-sidebar {
+  position: sticky;
+  top: 70px; 
+  height: calc(100vh - 70px);
+  background: #1f2a3a;
+  color: white;
+  padding: 10px;
+}
+
+.admin-sidebar .nav-link {
+  color: #cfd8dc;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.admin-sidebar .nav-link:hover {
+  background: #2c3a4f;  
+  color: #ffffff;
+}
+
+.admin-sidebar .nav-link.active {
+  background: #34495e;   
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.sub-menu {
+  padding-left: 15px;
+}
+
+.sub-menu .nav-link {
+  font-size: 14px;
+  background: transparent;
+}
+
+.sub-menu .nav-link:hover {
+  background: #2c3a4f;
+}

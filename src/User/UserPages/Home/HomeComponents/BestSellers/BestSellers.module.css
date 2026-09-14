@@ -1,0 +1,85 @@
+.pageTwo {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  margin-top: 70px;
+  margin-bottom: 170px;
+  position: relative;
+}
+
+.pgTwoBinkContant {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  line-height: 60px;
+  text-align: center;
+}
+
+.pgTwoPtagOne {
+  text-transform: capitalize;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgba(14, 52, 90, 1);
+}
+
+.pgTwoPtagTow {
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: 600;
+  font-family: georgia, palatino, "book antiqua", "palatino linotype", serif;
+  color: rgba(14, 52, 90, 1);
+}
+
+@media (max-width: 1024px) {
+  .pageTwo {
+    margin-top: 50px;
+    margin-bottom: 120px;
+  }
+
+  .pgTwoPtagOne {
+    font-size: 1.3rem;
+  }
+
+  .pgTwoPtagTow {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageTwo {
+    margin-bottom: 100px;
+  }
+
+  .pgTwoBinkContant {
+    line-height: 45px;
+  }
+
+  .pgTwoPtagOne {
+    font-size: 1.2rem;
+  }
+
+  .pgTwoPtagTow {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageTwo {
+    margin-top: 30px;
+    margin-bottom: 80px;
+  }
+
+  .pgTwoBinkContant {
+    line-height: 35px;
+  }
+
+  .pgTwoPtagOne {
+    font-size: 1rem;
+  }
+
+  .pgTwoPtagTow {
+    font-size: 1.8rem;
+  }
+}

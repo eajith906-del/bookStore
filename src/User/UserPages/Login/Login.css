@@ -1,0 +1,211 @@
+/* Only the styling that is UNIQUE to the Forgot Password screen.
+   Everything shared with Login/SignUp (page, container, header, inputs,
+   icon, button, signUpNow link) reuses styles from Login.module.css. */
+
+.fp-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    width: 400px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #797979;
+}
+/* Only the styling that is UNIQUE to the Create New Password screen.
+   Everything shared with Login/SignUp/ForgotPassword (page, container,
+   header, inputs, icon, button, signUpNow link) reuses styles from
+   Login.module.css so the theme, font, and sizes stay identical. */
+
+.np-description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    width: 400px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #797979;
+}
+
+/* password fields need room on the right for the show/hide eye icon */
+.np-passwordField{
+    position: relative;
+}
+.np-passwordField input{
+    width: 320px !important;
+}
+.np-eyeIcon{
+    color: #797979;
+    cursor: pointer;
+    margin-right: 25px;
+}
+/* ===== OTP Verification screen (same theme as Login) ===== */
+
+.otp-header {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  margin: 0 auto;
+  color: #7c83f7;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.otp-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+  margin: 10px auto 0;
+  text-align: center;
+  font-size: 16px;
+  color: #797979;
+  line-height: 1.5;
+}
+
+.otp-email {
+  color: #4c00b4;
+  font-weight: 600;
+}
+
+.otp-inputs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 40px;
+}
+
+.otp-box {
+  height: 55px;
+  width: 45px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+  color: #4c00b4;
+  background-color: #eaeaea;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.otp-box:focus {
+  background-color: #fff;
+  border-color: #4c00b4;
+}
+
+.otp-resend {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  margin: 10px auto 0;
+  text-align: center;
+  font-size: 15px;
+  color: #797979;
+}
+/* ===== Profile dropdown card (same theme as Login: purple accent #4c00b4) ===== */
+
+.profile-card {
+  width: 300px;
+  background-color: #fff;
+  border-radius: 16px;
+  border: 1px solid #eef0f4;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+}
+
+.profile-topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 6px 16px 6px;
+  border-bottom: 1px solid #f1f2f6;
+  margin-bottom: 8px;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1f2937;
+}
+
+.profile-email {
+  font-size: 13px;
+  color: #797979;
+}
+
+.profile-avatar {
+  height: 44px;
+  width: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  background-color: #eaeaea;
+  color: #4c00b4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-menuItem {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 8px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #1f2937;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.profile-menuItem:hover {
+  background-color: #f5f2ff;
+}
+
+.profile-menuIcon {
+  font-size: 18px;
+  color: #4c00b4;
+  min-width: 18px;
+}
+
+.profile-divider {
+  height: 1px;
+  background-color: #f1f2f6;
+  margin: 8px 4px 4px 4px;
+}
+
+.profile-signout {
+  margin-top: 4px;
+  color: #1f2937;
+}
+
+.profile-signout:hover {
+  background-color: #fdeeee;
+}
+
+.profile-signout .profile-menuIcon {
+  color: #dc2626;
+}
+
+.gray{
+    background-color: #eaeaea;
+    color: #676767;
+}

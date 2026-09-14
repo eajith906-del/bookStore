@@ -1,0 +1,133 @@
+.navContainer {
+    display: flex;
+    align-items: center;
+    margin: 25px 0px;
+    width: 100%;
+    gap: 30%;
+}
+
+.navBrandContainer {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navItem {
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: black;
+    white-space: nowrap;
+}
+
+.navIcons {
+    display: none;
+}
+
+.navBink {
+    font-size: 1.5rem;
+    background-color: rgb(11, 11, 94);
+    color: white;
+    font-weight: 700;
+    padding: 5px 0px;
+}
+
+.navPublisher {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.navBrandLink {
+    text-decoration: none;
+    list-style-type: none;
+}
+.userBtn{
+    border: none;
+    background: transparent;
+}
+@media screen and (max-width:1024px) {
+
+    .navContainer {
+        margin: 40px 10px;
+        gap: 15%;
+    }
+
+    .navBrandContainer {
+        width: 20%;
+    }
+
+    .navUl {
+        display: flex;
+        gap: 3%;
+    }
+
+    .navIcons {
+        display: none;
+    }
+
+
+    .navItem {
+        font-size: 1.3rem;
+        white-space: nowrap;
+    }
+
+    .navBink {
+        font-size: 1.5rem;
+        padding: 5px 5px;
+    }
+
+    .navPublisher {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width:768px) {
+
+    .navIcons {
+        display: flex;
+        
+    }
+
+    .navContainer {
+        margin: 40px 10px;
+        gap: 50%;
+        display: flex;
+        justify-content: space-around;
+
+    }
+
+    .navBrandContainer {
+        width: 15%;
+    }
+
+    .navUl {
+        position: absolute;
+       width: 100%;
+       background-color: white;
+       justify-content: flex-start;
+        gap: 15px;
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+        top: 120px;
+    }
+
+    .navItem {
+        font-size: 1.2rem;
+        white-space: nowrap;
+        padding-left: 20px;
+        
+    }
+
+    .navBink {
+        font-size: 1.2rem;
+        padding: 5px 5px;
+    }
+
+    .navPublisher {
+        font-size: 1.2rem;
+    }
+
+}

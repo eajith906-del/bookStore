@@ -1,0 +1,107 @@
+.container{
+    position:absolute;
+    top: 30%;
+    left: 40%;
+}
+.page{
+    display: flex;
+    justify-content: center;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: #7c83f7;
+    font-size: 48px;
+    font-weight: 600;
+}
+.smallHeader{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: -20px;
+    display: flex;
+    align-items: center;
+    width: 400px;
+    font-size: 18px;
+    color: #797979;
+
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 25px;
+}
+.input{
+   display: flex;
+   align-items: center;
+   margin: auto;
+   height: 60px;
+   width: 400px;
+   background-color: #eaeaea;
+   border-radius: 6px;
+}
+.input input{
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #797979;
+    font-size: 19px;
+}
+.forgotContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: -15px;
+
+}
+.forgotPassword{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 400px;
+    font-size: 18px;
+    color:  #4c00b4;
+    text-decoration: none;
+    cursor: pointer;
+}
+.forgotPassword:hover{
+    text-decoration: underline;
+}
+.icon{
+    margin: 0px 30px;
+}
+.btnContainer{
+    display: flex;
+    gap: 40px;
+    margin: 30px auto;
+    width: fit-content;
+}
+.loginBtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 59px;
+    width: 400px;
+    background-color:  #4c00b4;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.signUpNow{
+    text-align: center;
+     color: #797979;
+}
+.signUpNow span{
+color: #4c00b4; 
+cursor: pointer;
+text-decoration: underline;
+}
+

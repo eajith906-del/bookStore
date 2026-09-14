@@ -1,0 +1,78 @@
+
+.pageOne{
+    height: 100%;
+    width: 100%;
+}
+.pageOneImgMain{
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+.pageOneImg{
+   background-image: url("../../../../../assets/image2/landingimage.avif");
+    width: 90%;
+    background-size: cover;
+   position:relative;
+   height: 600px;
+}
+.imagecontantMain{
+   position: absolute;
+   line-height: 100px;
+   top: 8%;
+   left: 5%;
+}
+.pageOneImgContant{
+    color: rgba(14,52,90,1);
+    line-height: 100%;
+    font-size: 100px;
+    font-weight: 700;
+    font-family: georgia, palatino, book antiqua, palatino linotype, serif;   
+}
+@media (max-width: 1024px) {
+  .pageOneImgContant {
+    left: 100px;
+    top: 140px;
+    font-size: 70px;
+  }
+  .pageOneImg {
+    height: 450px;
+      width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .pageOneImgContant {
+    left: 60px;
+    top: 130px;
+    font-size: 40px;
+  }
+
+  .pageOneImg {
+    height: 400px;
+    width: 70%;
+   aspect-ratio: 4 / 3;
+  }
+.imagecontantMain{
+  line-height: 60px;
+  top: 50px;
+}
+}
+
+@media (max-width: 425px) {
+  
+  .imagecontantMain {
+    margin-top: 50px;
+  }
+
+  .pageOneImg {
+    height: 300px;
+    width: 90%;
+  }
+
+  .pageOneImgContant {
+    position: absolute;
+    left: 20px;
+    top: 120px;
+    font-size: 30px;
+    text-align: left;
+  }
+}

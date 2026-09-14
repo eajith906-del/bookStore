@@ -1,0 +1,8 @@
+.admin-wrapper {
+  margin-top: 10px; 
+}
+
+.admin-content {
+  min-height: calc(100vh - 70px);
+  background: #f8f9fa;
+}

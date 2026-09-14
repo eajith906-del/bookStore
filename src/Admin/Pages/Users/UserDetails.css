@@ -1,0 +1,409 @@
+.user-details-page {
+  padding: 24px;
+  /* background: #eef1f7; */
+  min-height: 100vh;
+}
+
+.udp-outer-card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 28px 32px;
+  box-shadow: 0 4px 24px rgba(20, 30, 60, 0.06);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.udp-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 12px;
+}
+
+.udp-title {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #1c2333;
+}
+
+.udp-muted {
+  color: #8a93a6;
+}
+
+.udp-search-input {
+  max-width: 240px;
+  width: 100%;
+  padding: 9px 16px;
+  border: 1px solid #e6e9f0;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background: #f7f9fc;
+}
+
+.udp-search-input:focus {
+  outline: none;
+  border-color: #4d7cfe;
+  box-shadow: 0 0 0 3px rgba(77, 124, 254, 0.12);
+}
+
+.udp-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+
+@media (max-width: 768px) {
+  .udp-stats-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat-card {
+  background: #f7f9fc;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.udp-stat-value {
+  margin: 0;
+  font-weight: 700;
+  color: #1c2333;
+}
+
+.stat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.stat-icon-warning {
+  background: #fff3cd;
+  color: #997404;
+}
+
+.stat-icon-success {
+  background: #d1e7dd;
+  color: #146c43;
+}
+
+.stat-icon-danger {
+  background: #f8d7da;
+  color: #b02a37;
+}
+
+.udp-list-header {
+  display: flex;
+  align-items: center;
+  padding: 0 20px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #8a93a6;
+  border-bottom: 1px solid #eef0f5;
+}
+
+.udp-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.udp-row {
+  display: flex;
+  align-items: center;
+  background: #f7f9fc;
+  border-radius: 8px;
+  padding: 14px 20px;
+  transition: background 0.15s ease;
+}
+
+.udp-row:hover {
+  background: #eef2fb;
+}
+
+.udp-empty-row {
+  text-align: center;
+  color: #8a93a6;
+  padding: 2rem 0;
+}
+
+.udp-col {
+  display: flex;
+  align-items: center;
+}
+
+.udp-col-user { flex: 2.2; min-width: 180px; }
+.udp-col-email { flex: 2; min-width: 160px; }
+.udp-col-role { flex: 1; min-width: 90px; }
+.udp-col-status { flex: 1.2; min-width: 100px; }
+.udp-col-edit { flex: 0.8; min-width: 80px; }
+.udp-col-action { flex: 0.6; min-width: 50px; justify-content: flex-end; }
+
+.udp-profile-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #1c2333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.udp-user-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.udp-user-name {
+  font-weight: 600;
+  color: #1c2333;
+  font-size: 0.92rem;
+}
+
+.udp-user-handle {
+  font-size: 0.78rem;
+  color: #9aa2b1;
+}
+
+.udp-email-text {
+  font-size: 0.88rem;
+  color: #4b5468;
+}
+
+.udp-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+.udp-badge-primary {
+  background: #e2ecff;
+  color: #3a63d6;
+}
+
+.udp-badge-secondary {
+  background: #eceef2;
+  color: #5c6577;
+}
+
+.udp-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.udp-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.udp-status-active {
+  color: #1c2333;
+}
+
+.udp-status-active .udp-status-dot {
+  background: #2fbf6e;
+}
+
+.udp-status-blocked {
+  color: #1c2333;
+}
+
+.udp-status-blocked .udp-status-dot {
+  background: #f24957;
+}
+
+.udp-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: #4d7cfe;
+  color: #fff;
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+.udp-edit-btn:hover {
+  filter: brightness(0.94);
+}
+
+.udp-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.udp-btn-icon-plain {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  color: #6c7488;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.udp-btn-icon-plain:hover {
+  background: #e7ebf3;
+}
+
+.udp-dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 4px);
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(20, 30, 60, 0.12);
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  min-width: 150px;
+  z-index: 20;
+}
+
+.udp-dropdown-item {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  color: #212529;
+}
+
+.udp-dropdown-item:hover {
+  background: #f8f9fa;
+}
+
+.udp-dropdown-item-danger {
+  color: #dc3545;
+}
+
+.udp-icon-gap {
+  margin-right: 8px;
+}
+
+.model {
+  position: fixed;
+  z-index: 1050;
+  inset: 0;
+  background: rgba(20, 25, 40, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.model-content {
+  background: #fff;
+  border-radius: 16px;
+  padding: 26px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.udp-modal-title {
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #1c2333;
+}
+
+.close {
+  float: right;
+  font-size: 22px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.udp-form-group {
+  margin-bottom: 1rem;
+}
+
+.udp-form-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.udp-form-control,
+.udp-form-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e6e9f0;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  background: #fff;
+}
+
+.udp-form-control:disabled {
+  background: #f2f4f8;
+  color: #8a93a6;
+}
+
+.udp-form-control:focus,
+.udp-form-select:focus {
+  outline: none;
+  border-color: #4d7cfe;
+  box-shadow: 0 0 0 3px rgba(77, 124, 254, 0.12);
+}
+
+.udp-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 9px 18px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.udp-btn-success {
+  background: #4d7cfe;
+  color: #fff;
+  font-weight: 600;
+}
+
+.udp-btn-success:hover {
+  filter: brightness(0.94);
+}

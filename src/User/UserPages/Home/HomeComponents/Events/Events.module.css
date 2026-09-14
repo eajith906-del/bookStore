@@ -1,0 +1,241 @@
+.pageFour{
+    width: 100%;
+    height: 100%;
+}
+.comming{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 70px;
+line-height: 50px;
+}
+.commingOne{
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 600;
+     color: rgba(14,52,90,1);
+    font-family: futura-lt-w01-book, sans-serif
+}
+.commingTwo{
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: georgia, palatino, book antiqua, palatino linotype, serif;
+    color: rgba(14,52,90,1);
+}
+.mainDiv{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    width: 100;
+    margin: 5%;
+}
+.divOne{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.divOneContant{
+    line-height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+.divTwo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+.divTwocontant{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.image{
+    border: 20px solid green;
+    width: 70%;
+} 
+ .land{
+    font-weight: 400;
+    font-size: 1.4rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+}
+.marker{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.when{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.where{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.buttonOne button{
+    width: 40%;
+    margin: 50px 0px;
+    padding: 15px 4px ;
+    text-transform: uppercase;
+     color: rgba(14,52,90,1);
+     font-size: 1rem;
+     border: 3px solid rgba(14,52,90,1);
+
+}
+.time{
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 3px 0px;
+}
+.terry{
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin: 3px 0px;
+
+}
+
+
+@media (max-width: 1024px) {
+  .comming {
+    margin: 50px;
+    line-height: 45px;
+  }
+
+  .commingTwo {
+    font-size: 2.5rem;
+  }
+
+  .mainDiv {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .image {
+    width: 80%;
+    border-width: 15px;
+  }
+
+  .land {
+    font-size: 1.3rem;
+  }
+
+  .marker,
+  .when,
+  .where,
+  .time,
+  .terry {
+    font-size: 1.1rem;
+  }
+
+  .buttonOne button {
+    width: 50%;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .mainDiv {
+    grid-template-columns: 1fr;
+    
+  }
+
+  .divOne{
+    width: 100%;
+  }
+  .divTwo {
+    width: 100%;
+  }
+
+  .comming {
+    margin: 40px;
+    text-align: center;
+  }
+
+  .commingOne {
+    font-size: 1.3rem;
+  }
+
+  .commingTwo {
+    font-size: 2.2rem;
+  }
+
+  .land {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  .marker,
+  .when,
+  .where,
+  .time,
+  .terry {
+    font-size: 1.5rem;
+  }
+
+  .image {
+    width: 80%;
+    border-width: 10px;
+  }
+  .divTwocontant{
+    width: 70%;
+  }
+
+  .buttonOne button {
+    width: 40%;
+    font-size: 0.9rem;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .comming {
+    margin: 30px;
+    line-height: 35px;
+  }
+
+  .commingOne {
+    font-size: 1.1rem;
+  }
+
+  .commingTwo {
+    font-size: 1.8rem;
+  }
+
+  .mainDiv {
+    grid-template-columns: 1fr;
+  }
+  .image {
+    width: 100%;
+    border-width: 8px;
+  }
+
+  .land {
+    font-size: 1rem;
+  }
+
+  .marker,
+  .when,
+  .where,
+  .time,
+  .terry {
+    font-size: 0.9rem;
+  }
+
+  .buttonOne button {
+    width: 40%;
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+}
+
+

@@ -1,0 +1,143 @@
+.pageFive{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(14,52,90,1);
+    color: white;
+   padding: 50px 0px;
+}
+.fiveContantMain{
+    width: 100%;
+    height: 100%;
+}
+.pageFiveContant{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 10%;
+}
+.contantOne{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+.contantTwo{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+.contantThree{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+}
+.contantFour{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.oneContant,.twoContant,.threeContant,.fourContant{
+    line-height: 2.5rem;
+}
+.link{
+    text-decoration: none;
+    color: white;
+}
+.subscribeMain{
+    display: flex;
+    justify-content: space-between;
+}
+.input{
+    width: 100%;
+} 
+.subscribeOne{
+    line-height: 25px;
+}
+ .subscribeTwo button{
+    width: 100px;
+    margin:  0% 20%;
+    padding: 3px;
+} 
+ .spanOne{
+    padding-left: 20px;
+} 
+
+@media (max-width: 1024px) {
+  .pageFiveContant {
+    gap: 6%;
+    flex-wrap: wrap;
+    padding: 0px;
+  }
+  .fiveContantMain{
+    padding: 0px;
+    margin: 0px;
+  }
+
+  .contantOne,
+  .contantTwo,
+  .contantThree,
+  .contantFour {
+    gap: 40px;
+
+  }
+
+  .subscribeTwo button {
+    margin: 10px 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageFiveContant {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-evenly;
+    /* padding: 50px; */
+  } 
+
+  .contantOne{
+    font-size: 1rem;
+
+  }
+  .contantTwo{
+    gap: 30px;
+    font-size: 1rem;
+
+  }
+  .contantThree{
+    gap: 30px;
+    font-size: 1rem;
+    margin-top: 50px;
+
+  }
+  .contantFour {
+    margin-top: 50px;;
+    gap: 30px;
+    font-size:1rem;
+  }
+
+  .subscribeMain {
+  display: grid;
+  grid-template-columns: auto;
+  }
+  .subscribeTwo button {
+    width: 50%;
+    margin: 10px 0;
+  }
+  .subscribeOne{
+    margin: 20px 0px;
+    line-height: 30px;
+  }
+
+  .input {
+    width: 90%;
+  }
+
+  .spanOne {
+    padding-left: 0;
+  }
+  .subscribeTwo button{
+    font-size: 20px;
+  } 
+}

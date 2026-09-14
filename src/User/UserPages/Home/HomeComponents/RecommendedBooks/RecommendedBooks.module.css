@@ -1,0 +1,197 @@
+.pgThree {
+  height: 100%;
+  width: 90%;
+  background-color: rgba(14, 52, 90, 1);
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  left: 5%;
+}
+
+.pageThreeMain {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  line-height: 50px;
+  color: white;
+  margin-bottom: 40px;
+  margin-top:-55px;
+}
+
+.monthOne {
+  font-size: 1.5rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  font-family: georgia, palatino, "book antiqua", "palatino linotype", serif;
+}
+
+.monthTwo {
+  font-size: 4rem;
+  font-weight: 500;
+  font-family: georgia, palatino, "book antiqua", "palatino linotype", serif;
+}
+
+.boxOne {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -30%);
+}
+
+.boxTwo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.thereMain h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 5rem;
+  font-weight: 700;
+  line-height: 100px;
+  margin: 30px;
+  font-family: georgia, palatino, "book antiqua", "palatino linotype", serif;
+  text-align: center;
+}
+
+.buttonOne {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonChild {
+  width: 150px;
+  font-size: 15px; 
+  margin-top: 30px;
+  margin-bottom: 70px;
+  padding: 20px;
+  background-color: rgba(14, 52, 90, 1);
+  color: white;
+  border: 3px solid white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.buttonChild:hover {
+  background-color: white;
+  color: rgba(14, 52, 90, 1);
+}
+
+@media (max-width: 1024px) {
+  .pgThree {
+    width: 95%;
+    left: 2.5%;
+  }
+
+  .month {
+    line-height: 60px;
+    margin-bottom: 50px;
+  }
+
+  .monthOne {
+    font-size: 1.3rem;
+  }
+
+  .monthTwo {
+    font-size: 3rem;
+  }
+
+  .thereMain h1 {
+    font-size: 3.5rem;
+    line-height: 80px;
+  }
+
+  .buttonChild {
+    width: 140px;
+    padding: 15px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .pgThree {
+    width: 100%;
+    left: 0;
+  }
+
+  .month {
+    line-height: 50px;
+    margin-bottom: 40px;
+  }
+
+  .monthOne {
+    font-size: 1.2rem;
+  }
+
+  .monthTwo {
+    font-size: 2.5rem;
+  }
+
+  .boxOne,
+  .boxTwo {
+    flex-direction: column;
+    margin-bottom: 60px;
+    transform: none;
+    left: 0;
+  }
+
+  .thereMain h1 {
+    font-size: 2.5rem;
+    line-height: 60px;
+    margin: 20px;
+  }
+
+  .buttonChild {
+    width: 130px;
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pgThree {
+    width: 100%;
+    left: 0;
+  }
+
+  .month {
+    line-height: 40px;
+    margin-bottom: 30px;
+  }
+
+  .monthOne {
+    font-size: 1rem;
+  }
+
+  .monthTwo {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .thereMain h1 {
+    font-size: 1.8rem;
+    line-height: 40px;
+    margin: 15px;
+  }
+
+  .buttonChild {
+    width: 120px;
+    padding: 10px;
+    font-size: 12px;
+  }
+}

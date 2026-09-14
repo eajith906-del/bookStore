@@ -1,0 +1,169 @@
+.AboutPage{
+  margin-bottom: 500px;
+  min-height: 100vh;
+  max-height: 100%;
+  width: 100%;
+}
+.aboutHead{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  align-items: center;
+  justify-self: center;
+}
+.AbHeadOne{
+  font-weight: 400;
+  font-size: 2rem;
+}
+.AbHeadTwo{
+   font-family: georgia, palatino, book antiqua, palatino linotype, serif;
+   font-size: 4rem; 
+   font-weight: 700;  
+
+}
+.bgOne{
+  position:absolute;
+  top: 60%;
+  left: 6%;
+  height: 110vh;
+  align-items: center;
+  width: 88%;
+  background-color: wheat;
+z-index: -1;
+}
+.bgTwo{
+  position: absolute;
+  top: 45%;
+  left: 20%;
+  background-image: url(../../../assets//image2/about.avif);
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  width: 60%;
+  height: 90%;
+  border: 2px solid rgb(209, 234, 117);
+}
+.bgThree {
+  position: absolute;
+  top: 90%;
+  left: 12%;
+   display: flex;
+   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 70%;
+   padding: 40px;
+  width: 35%;
+  z-index: 2;
+  border: 15px solid  rgba(14,52,90,1);
+  
+}
+.threePtagOne{
+  font-size: 1rem;
+  line-height: 30px;
+  margin-bottom: 20px;
+
+}
+.threePtagTwo{
+  font-size: 1rem;
+  line-height: 30px;
+}
+
+@media (max-width: 1024px) {
+  .AboutPage{
+  margin-bottom: 500px;
+  min-height: 100vh;
+  max-height: 100%;
+  width: 100%;
+}
+.aboutHead{
+  padding: 7px;
+}
+.bgOne{
+  top:40%;
+  left: 4%;
+  height: 70vh;
+  width: 92%;
+}
+.bgTwo{
+  top: 30%;
+  left: 15%;
+  width: 70%;
+  height: 60%;
+}
+.bgThree {
+  top: 60%;
+  left: 10%;
+  height:40%;
+  padding: 40px;
+  width: 60%;
+  gap: 0px;
+  
+}
+.threePtagOne{
+  font-size: 1rem;
+  line-height: 20px;
+  margin-bottom: 10px;
+
+}
+.threePtagTwo{
+  font-size: 1rem;
+  line-height: 20px;
+}
+}
+
+@media (max-width: 768px) {
+
+.aboutHead{
+  padding: 7px;
+}
+.bgOne{
+  top:40%;
+  left: 4%;
+  height: 70vh;
+  width: 92%;
+}
+.bgTwo{
+  top: 30%;
+  left: 15%;
+  width: 70%;
+  height: 60%;
+}
+.bgThree {
+  top: 60%;
+  left: 10%;
+  height:30%;
+  padding: 40px;
+  width: 70%;
+  gap: 0px;
+}
+}
+
+@media (max-width: 768px) {
+
+.aboutHead{
+  padding: 5px;
+}
+.bgOne{
+  top:35%;
+  left: 4%;
+  height: 70vh;
+  width: 92%;
+}
+.bgTwo{
+  top: 30%;
+  left: 15%;
+  width: 70%;
+  height: 60%;
+}
+.bgThree {
+  top: 60%;
+  left: 10%;
+  height:50%;
+  padding: 40px;
+  width: 80%;
+  gap: 0px;
+}
+}
