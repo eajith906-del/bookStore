@@ -9,25 +9,19 @@ import { VscChromeClose } from "react-icons/vsc";
 const NavBar = () => {
   const [open, setOpen] = useState(false)
   const [role, setRole] = useState(localStorage.getItem("role"))
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"))
+useEffect(() => {
+  const syncAuth = () => {
+    setRole(localStorage.getItem("role"))
+  }
 
-  useEffect(() => {
-    const syncAuth = () => {
-      setRole(localStorage.getItem("role"))
-      setIsLoggedIn(!!localStorage.getItem("token"))
-    }
+  window.addEventListener("authChange", syncAuth)
+  window.addEventListener("storage", syncAuth)
 
-    // login/logout aana odane fire aagum custom event
-    window.addEventListener("authChange", syncAuth)
-
-    // (bonus) vera tab la login/logout pannalum sync aagum
-    window.addEventListener("storage", syncAuth)
-
-    return () => {
-      window.removeEventListener("authChange", syncAuth)
-      window.removeEventListener("storage", syncAuth)
-    }
-  }, [])
+  return () => {
+    window.removeEventListener("authChange", syncAuth)
+    window.removeEventListener("storage", syncAuth)
+  }
+}, [])
 
   const openMenu = () => setOpen(!open)
   const closeMenu = () => setOpen(false)

@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import { FaTachometerAlt, FaBox, FaShoppingCart, FaUsers, FaEnvelope } from "react-icons/fa";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
