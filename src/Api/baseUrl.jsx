@@ -1,12 +1,12 @@
 import axios from "axios";
 
 const axiosDetails = axios.create({
-    baseURL:process.env.base_url,
-    headers:{
-        "Content-Type":"application/json"
-    }
+  baseURL: process.env.REACT_APP_BASE_URL,
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
-console.log("ggggggggggggggggg",process.env.base_url)
+console.log("BASE URL:", process.env.REACT_APP_BASE_URL);
 
-export default axiosDetails
+export default axiosDetails;

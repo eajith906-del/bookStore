@@ -20,7 +20,7 @@
   max-width: 1300px;
   margin: 24px auto;
   padding: 0 8px 40px;
-  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+   font-family: "Poppins", sans-serif;
   color: var(--text-dark);
 }
 
@@ -292,15 +292,20 @@
   display: inline-flex;
   align-items: center;
   padding: 5px 12px;
-  border-radius: 20px;
+  border-radius: 4px;
   font-size: 12px;
   font-weight: 700;
+  opacity: 20;
 }
 
-.ord-pill-cod { background: #eef0f5; color: var(--text-muted); }
+/* .ord-pill-cod {
+  color: var(--text-muted);
+}
 .ord-pill-online { background: var(--green-bg); color: var(--green-text); }
 .ord-pill-paid { background: var(--green-bg); color: var(--green-text); }
-.ord-pill-pendingpay { background: var(--amber-bg); color: var(--amber-text); }
+.ord-pill-pendingpay {
+  color: var(--amber-text);
+} */
 
 .ord-status {
   display: inline-flex;
@@ -311,13 +316,12 @@
   font-weight: 700;
 }
 
-.ord-status-pending { background: var(--purple-bg); color: var(--purple-text); }
-.ord-status-confirmed { background: var(--teal-bg); color: var(--teal-text); }
+ .ord-status-confirmed { background: var(--teal-bg); color: var(--teal-text); }
 .ord-status-processing { background: var(--teal-bg); color: var(--teal-text); }
 .ord-status-shipped { background: #e0e7ff; color: var(--blue); }
 .ord-status-out-for-delivery { background: #e0e7ff; color: var(--blue); }
 .ord-status-delivered { background: var(--green-bg); color: var(--green-text); }
-.ord-status-cancelled { background: var(--red-bg); color: var(--red-text); }
+
 
 .ord-actions {
   display: flex;

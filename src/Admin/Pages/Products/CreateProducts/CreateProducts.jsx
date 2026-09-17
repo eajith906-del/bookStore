@@ -78,7 +78,7 @@ export default function CreateProduct() {
     formData.append("bestSale", form.bestSeller);
 
     try {
-      const res = await fetch("http://localhost:3004/product/create", {
+      const res = await fetch("https://bookstore-server-y1qn.onrender.com/product/create", {
         method: "POST",
         body: formData,
       });
@@ -101,7 +101,6 @@ export default function CreateProduct() {
       <div className="cp-card-header">
         <div>
           <h1>Add New Product</h1>
-          <p>Fill in the product details below to add a new item to your store.</p>
         </div>
         <div className="cp-header-actions">
           <button type="button" className="cp-btn cp-btn-cancel" onClick={handleCancel}>

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import styles from "./CarouselTwo.module.css";
 import { useShop } from "../../User/UserPages/BookStore/shopContext/ShopeContext";
 
-const API_BASE = "http://localhost:3004/product";
+const API_BASE = "https://bookstore-server-y1qn.onrender.com";
 
 const CarouselTwo = () => {
   const trackRef = useRef(null);
@@ -17,7 +17,7 @@ const CarouselTwo = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`${API_BASE}/get`);
+        const res = await fetch(`${API_BASE}/product/get`);
         if (!res.ok) throw new Error("Failed to load products");
         const result = await res.json();
         const list = Array.isArray(result) ? result : result.data || [];
@@ -56,7 +56,9 @@ const CarouselTwo = () => {
     const step = getStep();
     if (!step || !track) return;
 
-    const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+    const atEnd =
+      track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+
     if (atEnd) {
       track.scrollTo({ left: 0, behavior: "smooth" });
     } else {
@@ -67,13 +69,24 @@ const CarouselTwo = () => {
   const handlePrev = () => {
     const step = getStep();
     if (step && trackRef.current) {
-      trackRef.current.scrollBy({ left: -step, behavior: "smooth" });
+      trackRef.current.scrollBy({
+        left: -step,
+        behavior: "smooth",
+      });
     }
   };
 
   const handleAddToCart = (item) => {
     const id = item._id || item.id;
-    addToCart({ id, name: item.name, rate: item.price, img: item.image }, 1);
+    addToCart(
+      {
+        id,
+        name: item.name,
+        rate: item.price,
+        img: item.image,
+      },
+      1
+    );
   };
 
   const handleQuickView = (item) => {
@@ -102,6 +115,7 @@ const CarouselTwo = () => {
       <div className={styles.carousel} ref={trackRef}>
         {products.map((item) => {
           const id = item._id || item.id;
+
           return (
             <div key={id} className={styles.box}>
               <div className={styles.imageWrap}>
@@ -116,7 +130,10 @@ const CarouselTwo = () => {
               </div>
 
               <p className={styles.name}>{item.name}</p>
-              <p className={styles.rate}>${Number(item.price).toFixed(2)}</p>
+
+              <p className={styles.rate}>
+                ${Number(item.price).toFixed(2)}
+              </p>
 
               <div className={styles.cartReveal}>
                 <button

@@ -13,6 +13,8 @@ import {
 } from "react-icons/fa";
 import "./ContactDetails.css";
 
+const API_BASE = "https://bookstore-server-y1qn.onrender.com";
+
 const ContactDetails = () => {
 
   const [contacts, setContacts] = useState([]);
@@ -25,7 +27,7 @@ const ContactDetails = () => {
 
   const getAllContacts = async () => {
     try {
-      const res = await axios.get("http://localhost:3004/contact/get");
+      const res = await axios.get(`${API_BASE}/contact/get`);
       setContacts(res.data.data);
       setFilterContacts(res.data.data);
     } catch (err) {
@@ -72,7 +74,7 @@ const ContactDetails = () => {
     if (!isConfirmed) return;
 
     try {
-      await axios.put("http://localhost:3004/contact/delete", { _id: id });
+      await axios.put(`${API_BASE}/contact/delete`, { _id: id });
       setOpenDropdownId(null);
       getAllContacts();
     } catch (err) {
@@ -86,7 +88,7 @@ const ContactDetails = () => {
 
   const handleMarkRead = async (contact) => {
     try {
-      await axios.put("http://localhost:3004/contact/update", {
+      await axios.put(`${API_BASE}/contact/update`, {
         _id: contact._id,
         status: "Read",
       });

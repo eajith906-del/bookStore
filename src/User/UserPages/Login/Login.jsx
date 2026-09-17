@@ -12,7 +12,7 @@ import "./Login.css"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const BASE_URL = "http://localhost:3004";
+const BASE_URL = "https://bookstore-server-y1qn.onrender.com";
 
 const Login = () => {
 

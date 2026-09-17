@@ -10,7 +10,7 @@ import {
 import { useShop } from "../BookStore/shopContext/ShopeContext"; 
 import "./CheckOut.css";
 
-const API_BASE = "http://localhost:3004/order";
+const API_BASE = "https://bookstore-server-y1qn.onrender.com/order";
 
 const STATE_OPTIONS = [
   "Tamil Nadu",

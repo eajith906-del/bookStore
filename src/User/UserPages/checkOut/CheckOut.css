@@ -1,6 +1,6 @@
 .chk-wrap {
-  --orange: #f4511e;
-  --orange-dark: #d8430f;
+  --orange:rgb(11, 11, 94);
+  --orange-dark: #0b2545;
   --navy: #0b2545;
   --text-dark: #1a1a2e;
   --text-muted: #8b93a7;
@@ -9,7 +9,8 @@
 
   max-width: 1200px;
   margin: 0 auto;
-  font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+   font-family: "Poppins", sans-serif;
+ 
   color: var(--text-dark);
 }
 

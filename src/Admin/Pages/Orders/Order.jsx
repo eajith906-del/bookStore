@@ -11,7 +11,7 @@ import {
 } from "react-icons/fi";
 import "./Order.css";
 
-const API_BASE = "http://localhost:3004/order";
+const API_BASE = "https://bookstore-server-y1qn.onrender.com/order";
 
 const AVATAR_COLORS = ["ord-av-purple", "ord-av-pink", "ord-av-teal", "ord-av-blue", "ord-av-orange"];
 
@@ -193,12 +193,11 @@ export default function Order() {
                         <td className="ord-id">{o.orderId}</td>
                         <td>
                           <div className="ord-customer-cell">
-                            <span className={`ord-avatar ${avatarClassFor(o.customerName)}`}>
+                            {/* <span className={`ord-avatar ${avatarClassFor(o.customerName)}`}>
                               {initialsOf(o.customerName)}
-                            </span>
+                            </span> */}
                             <div className="ord-customer-info">
                               <span className="ord-customer-name">{o.customerName}</span>
-                              <span className="ord-customer-email">{o.customerPhone}</span>
                             </div>
                           </div>
                         </td>

@@ -3,6 +3,8 @@ import axios from "axios";
 import { FaUsers, FaUserCheck, FaUserSlash, FaEllipsisV, FaEdit, FaTrash, FaLock, FaLockOpen } from "react-icons/fa";
 import "./UserDetails.css";
 
+const API_URL = "https://bookstore-server-y1qn.onrender.com";
+
 const UserDetails = () => {
 
   const [users, setUsers] = useState([]);
@@ -22,7 +24,7 @@ const UserDetails = () => {
 
   const getAllUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:3004/user/get");
+      const res = await axios.get(`${API_URL}/user/get`);
       setUsers(res.data.data);
       setFilterUsers(res.data.data);
     } catch (err) {
@@ -68,7 +70,7 @@ const UserDetails = () => {
 
   const handleUpdate = async () => {
     try {
-      await axios.put("http://localhost:3004/user/update", {
+      await axios.put(`${API_URL}/user/update`, {
         _id: editUserId,
         role: userData.role
       });
@@ -83,7 +85,7 @@ const UserDetails = () => {
     if (!isConfirmed) return;
 
     try {
-      await axios.put("http://localhost:3004/user/delete", { _id: id });
+      await axios.put(`${API_URL}/user/delete`, { _id: id });
       setOpenDropdownId(null);
       getAllUsers();
     } catch (err) {
@@ -93,7 +95,7 @@ const UserDetails = () => {
 
   const handleBlockToggle = async (user) => {
     try {
-      await axios.put("http://localhost:3004/user/update", {
+      await axios.put(`${API_URL}/user/update`, {
         _id: user._id,
         isBlocked: !user.isBlocked
       });

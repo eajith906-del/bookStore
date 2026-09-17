@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import styles from "./BookStore.module.css";
 import { useShop } from "./shopContext/ShopeContext";
 
-const API_BASE = "http://localhost:3004/product";
+const API_BASE = "https://bookstore-server-y1qn.onrender.com";
 
 // Sidebar collection checkboxes -> mapped to backend enum values
 const COLLECTIONS = [
@@ -27,8 +27,16 @@ const Bookstore = () => {
   const [priceOpen, setPriceOpen] = useState(false);
   const [selectedCollections, setSelectedCollections] = useState([]);
 
-  const [priceBounds, setPriceBounds] = useState({ min: 0, max: 100 });
-  const [priceRange, setPriceRange] = useState({ min: 0, max: 100 });
+  const [priceBounds, setPriceBounds] = useState({
+    min: 0,
+    max: 100,
+  });
+
+  const [priceRange, setPriceRange] = useState({
+    min: 0,
+    max: 100,
+  });
+
   const [priceApplied, setPriceApplied] = useState(false);
 
   // ---------- fetch products from backend ----------
@@ -36,24 +44,46 @@ const Bookstore = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const res = await fetch(`${API_BASE}/get`);
-        if (!res.ok) throw new Error("Failed to load products");
+
+        const res = await fetch(`${API_BASE}/product/get`);
+
+        if (!res.ok) {
+          throw new Error("Failed to load products");
+        }
+
         const result = await res.json();
-        const list = Array.isArray(result) ? result : result.data || [];
+
+        const list = Array.isArray(result)
+          ? result
+          : result.data || [];
 
         setProducts(list);
 
         if (list.length) {
-          const prices = list.map((p) => Number(p.price ?? p.rate ?? 0));
+          const prices = list.map((p) =>
+            Number(p.price ?? 0)
+          );
+
           const min = Math.floor(Math.min(...prices));
           const max = Math.ceil(Math.max(...prices));
-          setPriceBounds({ min, max });
-          setPriceRange({ min, max });
+
+          setPriceBounds({
+            min,
+            max,
+          });
+
+          setPriceRange({
+            min,
+            max,
+          });
         }
+
         setError(null);
       } catch (err) {
         console.error(err);
-        setError("Couldn't load products. Please try again.");
+        setError(
+          "Couldn't load products. Please try again."
+        );
       } finally {
         setLoading(false);
       }
@@ -65,7 +95,9 @@ const Bookstore = () => {
   // ---------- filtering ----------
   const toggleCollection = (value) => {
     setSelectedCollections((prev) =>
-      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+      prev.includes(value)
+        ? prev.filter((v) => v !== value)
+        : [...prev, value]
     );
   };
 
@@ -77,59 +109,111 @@ const Bookstore = () => {
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) => {
-      const price = Number(p.price ?? p.rate ?? 0);
+      const price = Number(p.price ?? 0);
       const category = (p.category || "").toLowerCase();
 
       const matchesCollection =
         selectedCollections.length === 0 ||
         selectedCollections.some((c) => {
-          if (c === "bestseller") return Boolean(p.isBestseller);
-          if (c === "book-of-month") return Boolean(p.isBookOfMonth);
+          if (c === "bestseller") {
+            return Boolean(p.bestSale);
+          }
+
+          if (c === "book-of-month") {
+            return Boolean(p.isBookOfMonth);
+          }
+
           return category === c;
         });
 
       const matchesPrice = !priceApplied
         ? true
-        : price >= priceRange.min && price <= priceRange.max;
+        : price >= priceRange.min &&
+          price <= priceRange.max;
 
-      return matchesCollection && matchesPrice;
+      return (
+        matchesCollection &&
+        matchesPrice
+      );
     });
-  }, [products, selectedCollections, priceApplied, priceRange]);
+  }, [
+    products,
+    selectedCollections,
+    priceApplied,
+    priceRange,
+  ]);
 
   return (
     <div className={styles.page}>
       <div className={styles.hero}>
-        <span className={styles.heroEyebrow}>Our</span>
-        <h1 className={styles.heroTitle}>BOOKSTORE</h1>
+        <span className={styles.heroEyebrow}>
+          Our
+        </span>
+
+        <h1 className={styles.heroTitle}>
+          BOOKSTORE
+        </h1>
       </div>
 
       <div className={styles.layout}>
         {/* ---------------- Sidebar ---------------- */}
+
         <aside className={styles.sidebar}>
-          <h2 className={styles.filterHeading}>Filter by</h2>
+          <h2 className={styles.filterHeading}>
+            Filter by
+          </h2>
 
           <div className={styles.filterGroup}>
             <button
               type="button"
               className={styles.filterGroupHeader}
-              onClick={() => setCollectionOpen((o) => !o)}
+              onClick={() =>
+                setCollectionOpen(
+                  (o) => !o
+                )
+              }
             >
               <span>Collection</span>
-              <span className={styles.toggleIcon}>
-                {collectionOpen ? "–" : "+"}
+
+              <span
+                className={
+                  styles.toggleIcon
+                }
+              >
+                {collectionOpen
+                  ? "–"
+                  : "+"}
               </span>
             </button>
 
             {collectionOpen && (
-              <div className={styles.filterOptions}>
+              <div
+                className={
+                  styles.filterOptions
+                }
+              >
                 {COLLECTIONS.map((c) => (
-                  <label key={c.value} className={styles.checkboxRow}>
+                  <label
+                    key={c.value}
+                    className={
+                      styles.checkboxRow
+                    }
+                  >
                     <input
                       type="checkbox"
-                      checked={selectedCollections.includes(c.value)}
-                      onChange={() => toggleCollection(c.value)}
+                      checked={selectedCollections.includes(
+                        c.value
+                      )}
+                      onChange={() =>
+                        toggleCollection(
+                          c.value
+                        )
+                      }
                     />
-                    <span>{c.label}</span>
+
+                    <span>
+                      {c.label}
+                    </span>
                   </label>
                 ))}
               </div>
@@ -139,61 +223,134 @@ const Bookstore = () => {
           <div className={styles.filterGroup}>
             <button
               type="button"
-              className={styles.filterGroupHeader}
-              onClick={() => setPriceOpen((o) => !o)}
+              className={
+                styles.filterGroupHeader
+              }
+              onClick={() =>
+                setPriceOpen(
+                  (o) => !o
+                )
+              }
             >
               <span>Price</span>
-              <span className={styles.toggleIcon}>{priceOpen ? "–" : "+"}</span>
+
+              <span
+                className={
+                  styles.toggleIcon
+                }
+              >
+                {priceOpen
+                  ? "–"
+                  : "+"}
+              </span>
             </button>
 
             {priceOpen && (
-              <div className={styles.priceBox}>
-                <div className={styles.sliderTrackWrap}>
+              <div
+                className={
+                  styles.priceBox
+                }
+              >
+                <div
+                  className={
+                    styles.sliderTrackWrap
+                  }
+                >
                   <input
                     type="range"
                     min={priceBounds.min}
                     max={priceBounds.max}
                     value={priceRange.min}
                     onChange={(e) => {
-                      const val = Math.min(
-                        Number(e.target.value),
-                        priceRange.max
+                      const val =
+                        Math.min(
+                          Number(
+                            e.target
+                              .value
+                          ),
+                          priceRange.max
+                        );
+
+                      setPriceRange(
+                        (r) => ({
+                          ...r,
+                          min: val,
+                        })
                       );
-                      setPriceRange((r) => ({ ...r, min: val }));
-                      setPriceApplied(true);
+
+                      setPriceApplied(
+                        true
+                      );
                     }}
                   />
+
                   <input
                     type="range"
                     min={priceBounds.min}
                     max={priceBounds.max}
                     value={priceRange.max}
                     onChange={(e) => {
-                      const val = Math.max(
-                        Number(e.target.value),
-                        priceRange.min
+                      const val =
+                        Math.max(
+                          Number(
+                            e.target
+                              .value
+                          ),
+                          priceRange.min
+                        );
+
+                      setPriceRange(
+                        (r) => ({
+                          ...r,
+                          max: val,
+                        })
                       );
-                      setPriceRange((r) => ({ ...r, max: val }));
-                      setPriceApplied(true);
+
+                      setPriceApplied(
+                        true
+                      );
                     }}
                   />
                 </div>
-                <div className={styles.priceLabels}>
-                  <span>${priceRange.min}</span>
-                  <span>${priceRange.max}</span>
+
+                <div
+                  className={
+                    styles.priceLabels
+                  }
+                >
+                  <span>
+                    ${priceRange.min}
+                  </span>
+
+                  <span>
+                    ${priceRange.max}
+                  </span>
                 </div>
               </div>
             )}
           </div>
 
-          {(priceApplied || selectedCollections.length > 0) && (
-            <div className={styles.activeFilterTag}>
+          {(priceApplied ||
+            selectedCollections.length >
+              0) && (
+            <div
+              className={
+                styles.activeFilterTag
+              }
+            >
               {priceApplied && (
                 <span>
-                  ${priceRange.min}–${priceRange.max}
+                  ${priceRange.min}–
+                  ${priceRange.max}
                 </span>
               )}
-              <button type="button" onClick={clearAllFilters}>
+
+              <button
+                type="button"
+                onClick={
+                  clearAllFilters
+                }
+              >
                 Clear All
               </button>
             </div>
@@ -201,52 +358,134 @@ const Bookstore = () => {
         </aside>
 
         {/* ---------------- Product grid ---------------- */}
-        <section className={styles.content}>
-          <h2 className={styles.allProducts}>All Products</h2>
 
-          {loading && <p className={styles.status}>Loading products…</p>}
-          {error && <p className={styles.status}>{error}</p>}
-          {!loading && !error && filteredProducts.length === 0 && (
-            <p className={styles.status}>No products match these filters.</p>
+        <section
+          className={styles.content}
+        >
+          <h2
+            className={
+              styles.allProducts
+            }
+          >
+            All Products
+          </h2>
+
+          {loading && (
+            <p
+              className={
+                styles.status
+              }
+            >
+              Loading products…
+            </p>
           )}
 
+          {error && (
+            <p
+              className={
+                styles.status
+              }
+            >
+              {error}
+            </p>
+          )}
+
+          {!loading &&
+            !error &&
+            filteredProducts.length ===
+              0 && (
+              <p
+                className={
+                  styles.status
+                }
+              >
+                No products match these
+                filters.
+              </p>
+            )}
+
           <div className={styles.grid}>
-            {filteredProducts.map((item) => {
-              const id = item._id || item.id;
-              const image = item.image || item.img;
-              const price = item.price ?? item.rate;
+            {filteredProducts.map(
+              (item) => {
+                const id = item._id;
+                const image =
+                  item.image;
+                const price =
+                  item.price;
 
-              return (
-                <div key={id} className={styles.card}>
-                  <div className={styles.imageWrap}>
-                    <img src={image} alt={item.name} />
-
-                    <div
-                      className={styles.quickView}
-                      onClick={() => setViewProduct(item)}
-                    >
-                      Quick View
-                    </div>
-                  </div>
-
-                  <h3 className={styles.productName}>{item.name}</h3>
-                  <p className={styles.productPrice}>${Number(price).toFixed(2)}</p>
-
-                  <button
-                    type="button"
-                    className={styles.addToCartBtn}
-                    onClick={() =>
-                      addToCart(
-                        { id, name: item.name, rate: price, img: image },
-                        1
-                      )
+                return (
+                  <div
+                    key={id}
+                    className={
+                      styles.card
                     }
                   >
-                    Add to Cart
-                  </button>
-                </div>
-              );
-            })}
+                    <div
+                      className={
+                        styles.imageWrap
+                      }
+                    >
+                      <img
+                        src={image}
+                        alt={item.name}
+                      />
+
+                      <div
+                        className={
+                          styles.quickView
+                        }
+                        onClick={() =>
+                          setViewProduct(
+                            item
+                          )
+                        }
+                      >
+                        Quick View
+                      </div>
+                    </div>
+
+                    <h3
+                      className={
+                        styles.productName
+                      }
+                    >
+                      {item.name}
+                    </h3>
+
+                    <p
+                      className={
+                        styles.productPrice
+                      }
+                    >
+                      $
+                      {Number(
+                        price
+                      ).toFixed(2)}
+                    </p>
+
+                    <button
+                      type="button"
+                      className={
+                        styles.addToCartBtn
+                      }
+                      onClick={() =>
+                        addToCart(
+                          {
+                            id,
+                            name: item.name,
+                            rate: price,
+                            img: image,
+                          },
+                          1
+                        )
+                      }
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                );
+              }
+            )}
           </div>
         </section>
       </div>
