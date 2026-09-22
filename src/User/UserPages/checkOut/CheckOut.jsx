@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../Components/Footer/Footer";
 import { 
   FiArrowLeft,
   FiLock,
@@ -8,6 +9,8 @@ import {
   FiRefreshCw,
 } from "react-icons/fi";
 import { useShop } from "../BookStore/shopContext/ShopeContext"; 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./CheckOut.css";
 
 const API_BASE = "https://bookstore-server-y1qn.onrender.com/order";
@@ -103,12 +106,17 @@ export default function Checkout() {
       });
       const data = await res.json();
       if (data.status) {
+        toast.success("Order Placed Successfully!");
         setCart && setCart([]);
-        navigate("/order-success", { state: { order: data.data } });
+        setTimeout(() => {
+          navigate("/", { state: { order: data.data } });
+        }, 1000);
       } else {
+        toast.error(data.message || "Could not place order");
         setError(data.message || "Could not place order");
       }
     } catch (err) {
+      toast.error("Could not reach server: " + err.message);
       setError("Could not reach server: " + err.message);
     } finally {
       setPlacing(false);
@@ -116,6 +124,7 @@ export default function Checkout() {
   };
 
   return (
+    <div>
     <div className="chk-wrap">
       <div className="chk-topbar">
         <div className="chk-logo">
@@ -291,6 +300,11 @@ export default function Checkout() {
           </div>
         </div>
       </div>
+
     </div>
+          <div>
+        <Footer/>
+      </div>
+      </div>
   );
 }

@@ -14,6 +14,11 @@ import { useNavigate } from 'react-router-dom';
 
 const BASE_URL = "https://bookstore-server-y1qn.onrender.com";
 
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
 const Login = () => {
 
   const navigate = useNavigate()
@@ -32,12 +37,20 @@ const Login = () => {
   const otpRefs = useRef([]);
 
   const signUp = async () => {
+    if (!name || !email || !password) {
+      toast.error("Please fill all the fields");
+      return;
+    }
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
     try {
       const updatedData = { name, email, password }
       const response = await axios.post(`${BASE_URL}/user/create`, updatedData, { withCredentials: true });
 
       if (response.data.status === true) {
-        toast.success(response.data.message);
+        toast.success(response.data.message || "Account created successfully!");
         const userData = response.data.data;
 
         localStorage.setItem("token", userData.token);
@@ -49,7 +62,7 @@ const Login = () => {
         window.dispatchEvent(new Event("authChange")); 
 
         setName(""); setEmail(""); setPassword("");
-        navigate("/");
+        setTimeout(() => navigate("/"), 1000);
       } else {
         toast.error(response.data.message);
       }
@@ -60,6 +73,14 @@ const Login = () => {
   }
 
 const login = async () => {
+    if (!email || !password) {
+      toast.error("Please fill all the fields");
+      return;
+    }
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
     try {
       const response = await axios.post(`${BASE_URL}/user/login`, { email, password }, { withCredentials: true });
 
@@ -73,14 +94,16 @@ const login = async () => {
 
         window.dispatchEvent(new Event("authChange"));
 
-        toast.success(response.data.message);
+        toast.success(response.data.message || "Login successful!");
         setIsLoggedIn(true);
 
-        if (userData.role === "admin") {
-          navigate("/admin/dashboard");
-        } else {
-          navigate("/");
-        }
+        setTimeout(() => {
+          if (userData.role === "admin") {
+            navigate("/admin/dashboard");
+          } else {
+            navigate("/");
+          }
+        }, 1000);
 
       } else {
         toast.error(response.data.message);
@@ -92,6 +115,14 @@ const login = async () => {
   };
 
   const sendResetEmail = async () => {
+    if (!email) {
+      toast.error("Please enter your email");
+      return;
+    }
+    if (!validateEmail(email)) {
+      toast.error("Please enter a valid email address");
+      return;
+    }
     try {
       const response = await axios.post(`${BASE_URL}/user/forgot-password`, { email });
       if (response.data.status === true) {

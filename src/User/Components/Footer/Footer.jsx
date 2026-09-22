@@ -60,7 +60,6 @@ const Footer = () => {
                                         <p ><span className={styles.spanOne}>Yes,subscribe mes</span> <br /> to your <br /> <span className={styles.spanOne}>newsletter</span> </p>
                                     </div>
                                     <div className={styles.subscribeTwo}>
-                                        <button>Subscribe</button>
                                     </div>
                                 </div>
                             </div>
